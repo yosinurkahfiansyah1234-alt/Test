@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RYZ- Professional Photographer</title>
+<style>
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+    color: #111;
+    line-height: 1.6;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Container max width */
+  .container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* HEADER & NAVBAR */
+  header {
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: #111;
+  }
+  .nav-menu {
+    display: flex;
+    gap: 1.6rem;
+  }
+  .nav-menu a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.3rem 0.1rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  .nav-menu a:hover,
+  .nav-menu a:focus {
+    border-bottom-color: #222;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(
+        rgba(0,0,0,0.55), rgba(0,0,0,0.55)
+      ),
+      url(Logo_RYZ-removebg-preview.png) no-repeat center/cover;
+    color: #eee;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  .hero h1 {
+    font-size: 3.2rem;
+    font-weight: 900;
+    margin-bottom: 0.3rem;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.75);
+  }
+  .hero p {
+    max-width: 560px;
+    margin: 0 auto 2rem auto;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #ddd;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  }
+  .btn-primary {
+    background-color: #111;
+    color: #eee;
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #333;
+    color: #fff;
+  }
+
+  /* PROBLEM & SOLUTION SECTION */
+  section.prob-sol {
+    background: #f8f8f8;
+    padding: 3rem 1rem;
+  }
+  .prob-sol .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
+  }
+  .list-box {
+    background: #fff;
+    padding: 1.8rem 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  }
+  .list-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #222;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    padding-bottom: 0.25rem;
+  }
+  .list-box ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .list-box ul li {
+    margin-bottom: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    position: relative;
+    padding-left: 18px;
+  }
+  .list-box ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0; 
+    top: 0;
+    font-size: 1.6rem;
+    line-height: 1rem;
+    color: #111;
+  }
+
+  /* CUSTOMER SEGMENTS */
+  #customer-segments {
+    padding: 3rem 1rem;
+  }
+  #customer-segments > .container {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #customer-segments h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #222;
+  }
+  .segments-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.6rem;
+  }
+  .segment {
+    flex: 1 1 160px;
+    background: #111;
+    color: #eee;
+    padding: 1.2rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    user-select: none;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+  }
+
+  /* UNFAIR ADVANTAGE */
+  #unfair-advantage {
+    background: #111;
+    color: #eee;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    max-width: 880px;
+    margin: 0 auto 3rem auto;
+    border-radius: 10px;
+  }
+  #unfair-advantage h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  #unfair-advantage p {
+    font-size: 1.1rem;
+    max-width: 680px;
+    margin: 0 auto;
+    font-style: italic;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  /* PORTFOLIO SECTION */
+  #portfolio {
+    padding: 3rem 1rem;
+  }
+  #portfolio .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  #portfolio h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    color: #111;
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 1.2rem;
+  }
+  .portfolio-item {
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: zoom-in;
+  }
+  .portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+    display: block;
+  }
+  .portfolio-item:hover img,
+  .portfolio-item:focus-within img {
+    transform: scale(1.08);
+  }
+
+  /* SERVICES SECTION */
+  #services {
+    background: #f8f8f8;
+    padding: 3rem 1rem;
+  }
+  #services .container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #services h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    color: #111;
+  }
+  .services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    justify-content: center;
+  }
+  .service-item {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    width: 240px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    cursor: default;
+  }
+  .service-item:hover,
+  .service-item:focus {
+    background-color: #222;
+    color: #eee;
+  }
+
+  /* ABOUT SECTION */
+  #about {
+    padding: 3rem 1rem;
+  }
+  #about .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  #about img {
+    border-radius: 50%;
+    flex-shrink: 0;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    box-shadow: 0 0 12px rgba(0,0,0,0.15);
+  }
+  #about-content {
+    flex: 1 1 320px;
+  }
+  #about h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #111;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+  }
+  #about p {
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: #444;
+  }
+  .metrics-list {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .metric {
+    text-align: center;
+  }
+  .metric strong {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.3rem;
+  }
+  .metric span {
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 600;
+  }
+
+  /* CHANNELS */
+  #channels {
+    background: #111;
+    color: #eee;
+    padding: 2.5rem 1rem;
+    max-width: 720px;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+    border-radius: 8px;
+  }
+  #channels h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .channels-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .channel-item {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.8px;
+    user-select: none;
+  }
+  .channel-item a {
+    color: #eee;
+    border-bottom: 1px dotted #eee;
+  }
+  .channel-item a:hover,
+  .channel-item a:focus {
+    color: #aaa;
+  }
+
+  /* CONTACT FORM */
+  #contact {
+    padding: 3rem 1rem 4rem 1rem;
+  }
+  #contact .container {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  #contact h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1.4rem;
+    text-align: center;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    color: #111;
+  }
+  form {
+    background: #fefefe;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 2rem 1.6rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    margin-top: 1rem;
+    color: #222;
+  }
+  input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    margin-top: 0.2rem;
+    border: 1.8px solid #aaa;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #111;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  button[type="submit"] {
+    margin-top: 1.8rem;
+    background-color: #111;
+    color: #eee;
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  button[type="submit"]:hover,
+  button[type="submit"]:focus {
+    background-color: #333;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #111;
+    color: #bbb;
+    text-align: center;
+    padding: 1.7rem 1rem;
+    letter-spacing: 0.03em;
+    font-size: 0.9rem;
+    border-top: 1px solid #222;
+  }
+  footer .socials {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.8rem;
+  }
+  footer .socials span {
+    user-select: none;
+    font-weight: 600;
+    cursor: default;
+    color: #bbb;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 840px) {
+    .segments-list {
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    #about .container {
+      flex-direction: column;
+      text-align: center;
+    }
+    #about img {
+      margin: 0 auto 1.5rem auto;
+    }
+    .metrics-list {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 440px) {
+    .nav-menu {
+      gap: 0.9rem;
+      font-size: 0.9rem;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+    .hero p {
+      font-size: 1rem;
+    }
+    #customer-segments h2,
+    #services h2,
+    #portfolio h2,
+    #about h2,
+    #channels h2,
+    #contact h2,
+    #unfair-advantage h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="container" aria-label="Primary Navigation">
+    <a href="#home" class="logo" tabindex="0">Ryz Fotografer</a>
+    <div class="nav-menu" role="menubar" aria-label="Primary Menu">
+      <a href="#home" role="menuitem" tabindex="0">Home</a>
+      <a href="#portfolio" role="menuitem" tabindex="0">Portofolio</a>
+      <a href="#services" role="menuitem" tabindex="0">Services</a>
+      <a href="#about" role="menuitem" tabindex="0">About</a>
+      <a href="#contact" role="menuitem" tabindex="0">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="home" role="banner" aria-label="Hero section">
+    <h1>RYZ Photographer</h1>
+    <p>Driven by Passion, Captured with Precision.</p>
+    <a href="#portfolio" class="btn-primary" role="button" tabindex="0">View Portfolio</a>
+  </section>
+
+  <!-- PROBLEM & SOLUTION -->
+  <section class="prob-sol" aria-labelledby="probsol-title">
+    <div class="container">
+      <article class="list-box" aria-labelledby="problems-title">
+        <h2 id="problems-title">Common Client Problems</h2>
+        <ul>
+          <li>Mencari fotografer yang memahami visi mereka</li>
+          <li>Kualitas foto terbatas atau tidak konsisten dari pengalaman sebelumnya</li>
+          <li>Harga dan pilihan paket tidak jelas dan mahal</li>
+          <li>Terbatas dalam revisi</li>
+        </ul>
+      </article>
+      <article class="list-box" aria-labelledby="solutions-title">
+        <h2 id="solutions-title">Our Solutions</h2>
+        <ul>
+          <li>Konsultasi khusus untuk mewujudkan visi unik Anda sepenuhnya</li>
+          <li>Foto berkualitas tinggi yang konsisten melalui pengeditan profesional dan gaya khas</li>
+          <li>Harga transparan dan fleksibel yang disesuaikan dengan kebutuhan Anda</li>
+          <li>Pelanggan bisa merevisi 2 kali secara gratis</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- CUSTOMER SEGMENTS -->
+  <section id="customer-segments" aria-labelledby="customer-title">
+    <div class="container">
+      <h2 id="customer-title">Target Clients</h2>
+      <div class="segments-list">
+        <div class="segment" tabindex="0" aria-label="Wedding Photography Segment">Wedding</div>
+        <div class="segment" tabindex="0" aria-label="Brand Photography Segment">Brand</div>
+        <div class="segment" tabindex="0" aria-label="Personal Portrait Photography Segment">Personal Portrait</div>
+        <div class="segment" tabindex="0" aria-label="Event Photography Segment">Event</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNFAIR ADVANTAGE -->
+  <section id="unfair-advantage" aria-labelledby="unfair-title">
+    <h2 id="unfair-title">What Sets Me Apart</h2>
+    <p>
+      Dengan pengalaman lebih dari 5 tahun dan preset khas yang menghasilkan estetika abadi, dengan harga terjangkau lalu gaya fotografi yang autentik dan langsung dikenali — menawarkan nilai yang tidak dapat ditiru orang lain.
+    </p>
+  </section>
+
+  <!-- PORTOFOLIO -->
+  <section id="portfolio" aria-labelledby="portfolio-title">
+    <div class="container">
+      <h2 id="portfolio-title">Portofolio</h2>
+      <div class="portfolio-grid" role="list" aria-label="Photography portfolio gallery">
+        <div class="portfolio-item" role="listitem" tabindex="0">
+          <img  src="Gambar1.jpeg" />
+        </div>
+        <div class="portfolio-item" role="listitem" tabindex="0">
+          <img src="Gambar2.jpeg" />
+        </div>
+        <div class="portfolio-item" role="listitem" tabindex="0">
+          <img src="Gambar3.jpeg" />
+        </div>
+        <div class="portfolio-item" role="listitem" tabindex="0">
+          <img src="Gambar4.jpeg" />
+        </div>
+        <div class="portfolio-item" role="listitem" tabindex="0">
+          <img src="Gambar5.jpeg" />
+        </div>
+        <div class="portfolio-item" role="listitem" tabindex="0">
+          <img src="Gambar6.jpeg" />
+        </div>
+        <div class="portfolio-item" role="listitem" tabindex="0">
+          <img src="Gambar7.jpeg" />
+        </div>
+        <div class="portfolio-item" role="listitem" tabindex="0">
+          <img src="Gambar8.jpeg" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVICE -->
+  <section id="portfolio" aria-labelledby="portfolio-title">
+    <div class="container">
+      <h2 id="portfolio-title">Device</h2>
+      <div class="portfolio-grid" role="list" aria-label="Photography portfolio gallery">
+        <div class="portfolio-item" role="listitem" tabindex="0">
+          <img src="software.jpg" />
+        </div>
+        <div class="portfolio-grid" role="list" aria-label="Photography portfolio gallery">
+        <div class="portfolio-item" role="listitem" tabindex="0">
+          <img src="gimbal.webp" />
+        </div>
+        <div class="portfolio-grid" role="list" aria-label="Photography portfolio gallery">
+        <div class="portfolio-item" role="listitem" tabindex="0">
+          <img src="kamera.jpeg" />
+        </div>
+        <div class="portfolio-grid" role="list" aria-label="Photography portfolio gallery">
+        <div class="portfolio-item" role="listitem" tabindex="0">
+          <img src="HT.jpeg" />
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title">Services</h2>
+      <div class="services-list" role="list" aria-label="List of photography services">
+        <div class="service-item" role="listitem" tabindex="0" aria-describedby="desc-wedding-shoot"> fotografi 
+          <p id="desc-wedding-shoot" style="font-weight:normal; font-size:0.9rem; margin-top:0.4rem;">Saya menyediakan layanan fotografi profesional yang menangkap momen, produk, atau aktivitas Anda dengan visual yang berkualitas, detail, dan berkesan untuk kebutuhan personal maupun bisnis.</p>
+        </div>
+        <div class="service-item" role="listitem" tabindex="0" aria-describedby="desc-product-photo">Videografi.
+          <p id="desc-product-photo" style="font-weight:normal; font-size:0.9rem; margin-top:0.4rem;">Saya menawarkan layanan videografi yang menghasilkan video cinematic dan informatif untuk memperkuat branding, promosi, atau dokumentasi penting Anda.</p>
+        </div>
+        <div class="service-item" role="listitem" tabindex="0" aria-describedby="desc-corporate-event">rolling capture foto/video.
+          <p id="desc-corporate-event" style="font-weight:normal; font-size:0.9rem; margin-top:0.4rem;">Dengan layanan rolling capture, saya menyediakan pengambilan foto dan video secara rutin sehingga Anda selalu memiliki konten segar dan konsisten untuk sosial media maupun kebutuhan pemasaran.</p>
+        </div>
+        <div class="service-item" role="listitem" tabindex="0" aria-describedby="desc-private-portrait"> foto/video untuk dealership
+          <p id="desc-private-portrait" style="font-weight:normal; font-size:0.9rem; margin-top:0.4rem;">Saya juga menyediakan layanan khusus untuk dealership dengan menghasilkan foto dan video unit kendaraan yang detail, profesional, dan menarik agar meningkatkan daya tarik produk serta membantu mempercepat proses penjualan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="container">
+      <img src="Logo_RYZ-removebg-preview.png" />
+      <div id="about-content">
+        <h2 id="about-title">About Us</h2>
+        <p>Hi, We are RYZ Otoshoot, a professional photographer with a passion for capturing genuine moments and timeless portraits. With a decade of expertise, I prioritize quality, consistency, and client satisfaction in every project.</p>
+        <div class="metrics-list" aria-label="Key Metrics: Experience, Clients, Projects">
+          <div class="metric" tabindex="0" aria-label="Years of experience">
+            <strong>5+</strong>
+            <span>Years Experience</span>
+          </div>
+          <div class="metric" tabindex="0" aria-label="Number of clients">
+            <strong>250+</strong>
+            <span>Happy Clients</span>
+          </div>
+          <div class="metric" tabindex="0" aria-label="Number of projects completed">
+            <strong>320+</strong>
+            <span>Projects Completed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANNELS -->
+  <section id="channels" aria-labelledby="channels-title">
+    <h2 id="channels-title">Find Us Here</h2>
+    <div class="channels-list" role="list" aria-label="Photographer contact channels">
+      <div class="channel-item" role="listitem" tabindex="0">
+        Instagram: <a href="https://instagram.com/RYZ_Otoshoot" target="_blank" rel="noopener" aria-label="Instagram profile">@RYZ_Otoshoot</a>
+      </div>
+      <div class="channel-item" role="listitem" tabindex="0">
+        Email: <a href="mailto:contact RYZOtosh00t@.com" aria-label="Send email to RYZ_Otoshoot">RYZOtosh00t@gmail.com</a>
+      </div>
+      <div class="channel-item" role="listitem" tabindex="0">
+        Website: <a href="https://RYZOtoshoot.com" target="_blank" rel="noopener" aria-label="Official website">RYZOtoshoot.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <h2 id="contact-title">Contact Us</h2>
+      <form action="#" method="POST" aria-label="Contact form">
+        <label for="name">Nama</label>
+        <input type="text" id="name" name="name" required autocomplete="name" placeholder="Nama lengkap Anda" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email" placeholder="Alamat email" />
+
+        <label for="message">Pesan</label>
+        <textarea id="message" name="message" required placeholder="Tulis pesan Anda di sini..."></textarea>
+
+        <button type="submit">Kirim</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 RYZ_Fotografer. All rights reserved.</p>
+  <div class="socials" aria-label="Social media links">
+    <span>Instagram</span>
+    <span>Email</span>
+    <span>Website</span>
+  </div>
+</footer>
+
+</body>
+</html>
